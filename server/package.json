@@ -1,0 +1,16 @@
+{
+  "name": "insurance-backend",
+  "version": "1.0.0",
+  "description": "Insurance Policy Management System - Backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "build-client": "cd ../client && npm install && npm run build && cd ../server"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.5"
+  }
+}
