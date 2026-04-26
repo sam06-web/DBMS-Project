@@ -2,7 +2,7 @@
 -- Insurance Policy Management System — Stored Procedures,
 -- Transactions, and Cursor Demonstrations
 -- ============================================================
-USE insurance_db;
+-- Removed hardcoded database for cloud deployment
 
 -- ============================================================
 -- STORED PROCEDURE 1: RegisterNewPolicy

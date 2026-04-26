@@ -1,7 +1,7 @@
 -- ============================================================
 -- Insurance Policy Management System — Sample Data
 -- ============================================================
-USE insurance_db;
+-- Removed hardcoded database for cloud deployment
 
 -- ============================================================
 -- CUSTOMERS

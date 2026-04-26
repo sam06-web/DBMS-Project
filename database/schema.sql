@@ -1,11 +1,7 @@
 -- ============================================================
 -- Insurance Policy Management System — Database Schema
 -- ============================================================
-
-DROP DATABASE IF EXISTS insurance_db;
-CREATE DATABASE insurance_db;
-USE insurance_db;
-
+-- Removed hardcoded database for cloud deployment
 -- ============================================================
 -- 1. CUSTOMER TABLE
 -- ============================================================
