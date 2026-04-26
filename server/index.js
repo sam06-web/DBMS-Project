@@ -68,12 +68,15 @@ app.get('/api/setup-database', async (req, res) => {
                 const block = parts[i];
                 const endIdx = block.indexOf('DELIMITER ;');
                 if (endIdx !== -1) {
-                    const procSql = block.substring(0, endIdx).trim();
+                    let procSql = block.substring(0, endIdx).trim();
+                    procSql = procSql.replace(/\$\$/g, ''); // Fix: Remove $$ from the end of the query
                     if (procSql) await conn.query(procSql);
                     const remaining = block.substring(endIdx + 'DELIMITER ;'.length).trim();
                     if (remaining) await executeNormalSql(conn, remaining);
                 } else {
-                    await conn.query(block.trim());
+                    let procSql = block.trim();
+                    procSql = procSql.replace(/\$\$/g, '');
+                    if (procSql) await conn.query(procSql);
                 }
             }
         } else {
