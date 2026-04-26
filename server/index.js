@@ -93,6 +93,12 @@ app.get('/api/setup-database', async (req, res) => {
         multipleStatements: true
     });
 
+    // Drop existing tables to ensure a clean slate
+    await conn.query('SET FOREIGN_KEY_CHECKS = 0;');
+    await conn.query('DROP TABLE IF EXISTS Claim, Payment, Nominee, Policy, Agent, Insurance_Plan, Customer;');
+    await conn.query('DROP VIEW IF EXISTS Policy_Details_View;');
+    await conn.query('SET FOREIGN_KEY_CHECKS = 1;');
+
     await executeSqlFile(conn, 'schema.sql');
     await executeSqlFile(conn, 'procedures.sql');
     await executeSqlFile(conn, 'seed.sql');
